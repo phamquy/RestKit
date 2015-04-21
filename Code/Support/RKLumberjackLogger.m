@@ -86,6 +86,8 @@
 
 /* Create a DDRegisteredDynamicLogging class for each RestKit component */
 
+#import "lcl_config_components_RK.h"
+
 #undef   _RKlcl_component
 #define  _RKlcl_component(_identifier, _header, _name)                                       \
     @interface RKLumberjackLog##_identifier : NSObject <DDRegisteredDynamicLogging>          \
@@ -99,6 +101,8 @@
         RKLogConfigureByName(_name, [RKLumberjackLogger rkLogLevelFromDDLogLevel:logLevel]); \
     }                                                                                        \
     @end
+
+RKLCLComponentDefinitions
 
 #include "lcl_config_components_RK.h"
 #undef   _RKlcl_component
